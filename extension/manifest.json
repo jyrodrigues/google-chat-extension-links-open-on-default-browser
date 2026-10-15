@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Google Chat: links no navegador padrão",
+  "version": "0.1.0",
+  "description": "Abre os links clicados no PWA do Google Chat no navegador padrão do macOS.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7ZYLhNaKZy1FwDu+y2JTb5OKghiIE76ZkKLUikxZkyKohgEQ6eHOAu43VSbXuPP2H+hNkxoYtQKDKjKthoad0AODyQylZqkk0MzDas4JFs8deLHzgZZ1W/rLDUAuSCriMnn/kwhswLqwt9mSC4tGqzqBe5800xVhOAexIyXMj/OY9Ov2DA0EutkpB7ZpDwnWbGcpm4o80C4JYxmEVjA8C/KQKDfz6db430ZLCYjz57of79fCCSUQ0Lhx0eXdNUC+LWg/ciB6DL67nxU5eQ8/Hyd/BdSA16VAUMjXmlXLYMIG0lu+K4rSbzJojFeuhNt6EPB8VBfTnqO8hJ684h7+iwIDAQAB",
+  "permissions": ["nativeMessaging", "webNavigation"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.google.com/*"],
+      "js": ["links.js", "content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
