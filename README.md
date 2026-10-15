@@ -9,43 +9,44 @@ São duas peças:
 - `host/open_external.py`: um script que recebe a URL da extensão e roda
   `open <url>`, que abre no navegador padrão. Extensões não podem executar
   programas; o Chrome só deixa a extensão falar com programas registrados num
-  arquivo JSON (`host/com.gchat.open_external.json`), que você copia no passo 3.
+  arquivo JSON (`host/com.gchat.open_external.json`), que você copia no passo 2.
 
 ## Instalar
 
-1. Descompacte esta pasta em `~/Applications/gchat-links`. Se usar outro
-   lugar, ajuste os caminhos abaixo e o campo `path` do JSON.
-
-2. Tire a quarentena que o macOS põe em arquivos baixados (ela pode impedir o
-   Chrome de executar o script) e garanta que o script é executável:
+1. Clone o repositório num lugar fixo (o passo 2 grava o caminho dele; se mover
+   a pasta, refaça o passo 2):
 
    ```bash
-   xattr -dr com.apple.quarantine ~/Applications/gchat-links
-   chmod +x ~/Applications/gchat-links/host/open_external.py
+   git clone https://github.com/jyrodrigues/google-chat-extension-links-open-on-default-browser.git
+   cd google-chat-extension-links-open-on-default-browser
    ```
 
-3. Registre o script no Chrome. O JSON diz qual programa rodar (`path`) e qual
+2. Registre o script no Chrome. O JSON diz qual programa rodar (`path`) e qual
    extensão pode chamá-lo (`allowed_origins`). O `path` precisa ser absoluto,
-   então o `sed` troca `SEU_USUARIO` pelo seu usuário do Mac:
+   então o `sed` troca `CAMINHO_DO_REPO` pela pasta atual. Rode de dentro do
+   repositório:
 
    ```bash
    mkdir -p ~/Library/Application\ Support/Google/Chrome/NativeMessagingHosts
-   sed "s/SEU_USUARIO/$(whoami)/" ~/Applications/gchat-links/host/com.gchat.open_external.json \
+   sed "s|CAMINHO_DO_REPO|$PWD|" host/com.gchat.open_external.json \
      > ~/Library/Application\ Support/Google/Chrome/NativeMessagingHosts/com.gchat.open_external.json
    ```
 
    No Chrome Canary, troque `Google/Chrome` por `Google/Chrome Canary`.
 
-4. No Chrome, abra `chrome://extensions`, ligue o **Modo do desenvolvedor**,
+3. No Chrome, abra `chrome://extensions`, ligue o **Modo do desenvolvedor**,
    clique em **Carregar sem compactação** e escolha a pasta `extension`.
    O ID mostrado deve ser `aikepfbcgincmiaclilhggpphijmgkom` (é fixo por causa
    da `key` no `manifest.json`, e é o mesmo do `allowed_origins`).
 
-5. Abra `https://chat.google.com` no Chrome e clique no ícone de instalar na
+4. Abra `https://chat.google.com` no Chrome e clique no ícone de instalar na
    barra de endereço (ou ⋮ → Transmitir, salvar e compartilhar → Instalar).
 
-6. Abra o app **Google Chat** (pelo Spotlight) e clique num link: ele abre no
+5. Abra o app **Google Chat** (pelo Spotlight) e clique num link: ele abre no
    navegador padrão.
+
+O script usa o `/usr/bin/python3` do macOS, que vem com as Command Line Tools
+(`xcode-select --install`). Se você tem `git`, já tem as duas coisas.
 
 ## Dicas
 

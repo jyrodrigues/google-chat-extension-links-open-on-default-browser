@@ -1,7 +1,7 @@
 {
   "name": "com.gchat.open_external",
   "description": "Abre links do Google Chat no navegador padrão",
-  "path": "/Users/SEU_USUARIO/Applications/gchat-links/host/open_external.py",
+  "path": "CAMINHO_DO_REPO/host/open_external.py",
   "type": "stdio",
   "allowed_origins": ["chrome-extension://aikepfbcgincmiaclilhggpphijmgkom/"]
 }
