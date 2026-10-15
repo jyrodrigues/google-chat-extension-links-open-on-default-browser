@@ -50,8 +50,10 @@ O script usa o `/usr/bin/python3` do macOS, que vem com as Command Line Tools
 
 ## Dicas
 
-- O app é uma janela do Chrome: feche as janelas do Chrome com Cmd+W, não com
-  Cmd+Q, senão o Chat fecha junto.
+- Feche o Chrome com Cmd+Q e depois abra direto o app do Chat: o Chrome sobe
+  por trás, sem nenhuma janela dele aberta.
+- O app roda dentro do Chrome: se em algum momento você abrir o Chrome e
+  fechá-lo com Cmd+Q, o Chat fecha junto.
 - Só os links clicados no app são redirecionados; o Chat numa aba do Chrome
   continua igual.
 - Link abrindo no Chrome? Em `chrome://extensions`, clique em "service worker"
