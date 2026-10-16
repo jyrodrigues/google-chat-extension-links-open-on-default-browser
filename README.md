@@ -51,7 +51,7 @@ O script usa o `/usr/bin/python3` do macOS, que vem com as Command Line Tools
 ## Dicas
 
 - Feche o Chrome com Cmd+Q e depois abra direto o app do Chat: o Chrome sobe
-  por trás, sem nenhuma janela dele aberta.
+  por trás, sem nenhuma janela dele aberta e sem aparecer no Dock.
 - O app roda dentro do Chrome: se em algum momento você abrir o Chrome e
   fechá-lo com Cmd+Q, o Chat fecha junto.
 - Só os links clicados no app são redirecionados; o Chat numa aba do Chrome
