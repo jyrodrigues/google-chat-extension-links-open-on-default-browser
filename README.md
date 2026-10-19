@@ -17,8 +17,8 @@ São duas peças:
    a pasta, refaça o passo 2):
 
    ```bash
-   git clone https://github.com/jyrodrigues/google-chat-extension-links-open-on-default-browser.git
-   cd google-chat-extension-links-open-on-default-browser
+   git clone https://github.com/jyrodrigues/google-chat-extension-links-open-on-default-browser.git gchat-extension
+   cd gchat-extension
    ```
 
 2. Registre o script no Chrome. O JSON diz qual programa rodar (`path`) e qual
